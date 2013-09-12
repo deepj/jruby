@@ -139,7 +139,7 @@ public class RubyTime extends RubyObject {
     }
 
     @Override
-    public int getNativeTypeIndex() {
+    public ClassIndex getNativeClassIndex() {
         return ClassIndex.TIME;
     }
     
@@ -266,7 +266,7 @@ public class RubyTime extends RubyObject {
     public static RubyClass createTimeClass(Ruby runtime) {
         RubyClass timeClass = runtime.defineClass("Time", runtime.getObject(), TIME_ALLOCATOR);
 
-        timeClass.index = ClassIndex.TIME;
+        timeClass.setClassIndex(ClassIndex.TIME);
         timeClass.setReifiedClass(RubyTime.class);
         
         runtime.setTime(timeClass);
